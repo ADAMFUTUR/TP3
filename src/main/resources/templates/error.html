@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Erreur - Yassir Hospital</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.5/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.13.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .error-card {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+        .error-icon {
+            font-size: 80px;
+            color: #dc3545;
+        }
+        .error-code {
+            font-size: 48px;
+            font-weight: bold;
+            color: #343a40;
+            margin: 20px 0;
+        }
+        .error-message {
+            font-size: 18px;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        .btn-return {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+        .btn-return:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-card">
+        <span class="error-icon">⚠️</span>
+        <h1 class="error-code" th:text="${errorCode != null} ? ${errorCode} : '404'"></h1>
+        <p class="error-message" th:text="${errorMessage != null} ? ${errorMessage} : 'La page que vous cherchez n\'existe pas.'"></p>
+        <a th:href="@{/user/index}" class="btn btn-primary btn-return">Retour à la liste des patients</a>
+    </div>
+</div>
+</body>
+</html>
